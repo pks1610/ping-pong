@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="m-4 center" *ngIf="!playerOneName && !playerTwoName">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="border p-2">
+        <div class="mt-2">
+            <label>Player 1 Name</label> 
+            <input name="playerOne" class="m-2" ngModel required>
+        </div>
+        <div class="mt-2">
+            <label>Player 2 Name</label>
+            <input name="playerTwo" class="m-2" ngModel required>
+        </div>
+        <div class="mt-2">
+            <button type="submit" [disabled]="!f.valid" class="btn btn-primary">Continue</button>
+        </div>
+    </form>
+  </div>
+
+  <app-game *ngIf="playerOneName && playerTwoName" [playerOne]="playerOneName" [playerTwo]="playerTwoName"></app-game>
+
+</div>
